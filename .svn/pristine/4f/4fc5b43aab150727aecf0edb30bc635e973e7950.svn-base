@@ -1,0 +1,157 @@
+
+/*welcome*/
+.welcome{
+	width: 100%;
+	height:2.82rem ;
+	background: #fff;
+	text-align: center;
+	float: left;
+}
+.welcome h3{
+	font-size: 0.2rem;
+	color:#000 ;
+	margin-bottom: 0.09rem;
+}
+.logo{
+	weight:0.84rem;
+	height:0.84rem;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.55rem;
+	margin-bottom: 0.31rem;
+}
+.tip_txt{
+	font-size: 0.12rem;
+	color: #898989;
+}
+.font{
+	color: #898989;
+	font-size: 0.13rem;
+	line-height: 0.2rem;
+	
+}
+/*welcome end*/
+/* scan_pay */
+.scan_pay{
+	clear: left;
+	width: 100%;
+	height:0.75rem ;
+	background: #fff;
+	float: left;
+}
+/*scan_pay end*/
+/*nav*/
+.nav{
+	margin-top: 0.1rem;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+.navContent{
+	margin: 0 auto;
+	width: 100%;
+	height: 0.48rem;
+	
+}
+.navContent dl{
+	width:0.58rem ;
+	height: 0.48rem;
+	margin: 0 0.33rem;
+	float: left;
+}
+#second{
+	border-top:0.01rem solid #ebebeb ;
+	margin-top: 0;
+}
+.navImg dt{
+	height:0.22rem ;
+	margin-bottom: 0.1rem;
+	background: url(../images/nav_03.png) no-repeat center center;
+	background-size:0.22rem 0.22rem ;
+}
+.addChange{
+	
+}
+.addChange dt{
+	background: url(../images/nav_05.png) no-repeat center center;
+	background-size:0.22rem 0.22rem ;
+}
+.findCar dt{
+	background: url(../images/nav_08.png) no-repeat center center;
+	background-size:0.22rem 0.22rem ;
+}
+.recharge dt{
+	background: url(../images/nav_17.png) no-repeat center center;
+	background-size:0.22rem 0.22rem ;
+}
+.dayRent dt{
+	background: url(../images/nav_14.png) no-repeat center center;
+	background-size:0.22rem 0.22rem ;
+}
+.nightRent dt{
+	background: url(../images/nav_20.png) no-repeat center center;
+	background-size:0.17rem 0.22rem ;
+}
+.navContent dd{
+	font-size: 0.14rem;
+	color: #C39F6B;
+	/*font-weight: bold;*/
+}
+/*nav end*/
+/*tip*/
+.tip{
+	clear: left;
+	width: 86%;
+	height: 1.5rem;
+	padding: 0 7%;
+	padding-top:0.15rem ;
+}
+.tip p{
+	width:100% ;
+	font-size: 0.11rem;
+	color: #1E1E1E;
+	/*margin-top: 0.1rem;*/
+}
+.tip p laber{
+	color: #fff;
+	background: #b0b0b0;
+	width: 0.12rem;
+	height: 0.12rem;
+	display: inline-block;
+	text-align: center;
+	line-height: 0.12rem;
+	border-radius:0.05rem ;
+	font-size: 0.07rem;
+	float: left;
+	margin-top: 0.015rem;
+	margin-right:0.07rem ;
+	}
+.tip p span{
+	color: #898989;
+	line-height: 0.2rem;
+}
+.tip p span b{
+	font-size: 0.18rem;
+}
+.tip p:first-child{
+	margin-top: 0.1rem;
+}
+.tip p:first-child span{
+	display: block;
+	padding-left: .18rem;
+	/*line-height: .24rem;*/
+	margin-bottom: 0.05rem;
+	
+}
+.tip p:last-child span{	
+	
+}
+.add_dian span{
+	padding-left: .18rem;
+	display: inline-block;
+	width: 100%;
+	height:100%;
+	background: url(../images/dian_03.png) no-repeat  0.05rem 0.07rem;
+	background-size: 0.04rem 0.04rem;
+}
+/*tip end*/

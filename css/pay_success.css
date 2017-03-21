@@ -1,0 +1,52 @@
+body{
+	background: #F6F6F6;
+}
+.paySuccessWrapper{
+	width: 100%;
+	height: 2.2rem;
+	background: #FFFFFF;
+}
+.paySuccessWrapper div:first-child{
+	width: 100%;
+	height: 1.22rem;
+	background: url(../images/paySuccess.png) no-repeat bottom center;
+	background-size: .7rem .7rem;
+}
+.payFailWrapper div:first-child{
+	width: 100%;
+	height: 1.22rem;
+	background: url(../images/payFailed.png) no-repeat bottom center;
+	background-size: .7rem .7rem;
+}
+.paySuccessWrapper div:last-child{
+	width: 100%;
+}
+.paySuccessWrapper div:last-child p{
+	text-align: center;
+}
+.paySuccessWrapper div:last-child p:first-child{
+	color: #000000;
+	font-size: .16rem;
+	margin-top: .21rem;
+}
+.paySuccessWrapper div:last-child p:last-child{
+	color: #959595;
+	font-size: .12rem;
+	margin-top: .14rem;
+}
+.paySuccessBtn{
+	width: 100%;
+	margin-top: .72rem;
+}
+.paySuccessBtn p{
+	width: 56%;
+	height: .44rem;
+	color: #FFFFFF;
+	font-size: .13rem;
+	text-align: center;
+	line-height: .44rem;
+	font-weight: bold;
+	background: #C39F6B;
+	border-radius: .22rem;
+	margin: 0 auto;
+}

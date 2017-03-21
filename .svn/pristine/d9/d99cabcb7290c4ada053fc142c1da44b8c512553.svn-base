@@ -1,0 +1,158 @@
+/*body color*/
+body{
+	background: #FFFFFF;
+}
+/*WeChatPay info*/
+.WeChatPayWrapper{
+	width: 100%;
+	background: #FFFFFF;
+}
+/*timeInfo*/
+.timeInfo{
+	width: 88%;
+	margin: 0 auto;
+	color: #000000;
+	font-size: .13rem;
+	padding: .06rem 0 .15rem;
+	border-bottom: .01rem solid #bababa;
+}
+.timeInfo p,
+.parkingFee p,
+.scoreDown p,
+.shouldPay p{
+	width: 100%;
+	height: .26rem;
+	line-height: .26rem;
+}
+.timeInfo .numberLevel{
+	height: .48rem;
+	line-height: .48rem;
+}
+.timeInfo .numberLevel span img{
+	height: .24rem;
+	margin-top: .12rem;
+	float: right;
+}
+.timeInfo p span:first-child,
+.parkingFee p span:first-child,
+.scoreDown p span:first-child,
+.shouldPay p span:first-child{
+	float: left;
+}
+.timeInfo p span:last-child,
+.parkingFee p span:last-child,
+.scoreDown p span:last-child,
+.shouldPay p span:last-child{
+	float: right;
+}
+.parkingFee,
+.scoreDown,
+.shouldPay{
+	width: 88%;
+	margin: 0 auto;
+	color: #000000;
+	font-size: .13rem;
+	border-bottom: .01rem solid #BABABA;
+	padding: .15rem 0;
+}
+/*parking fee*/
+.parkingFee span b{
+	font-weight: 100;
+}
+/*score deduction*/
+.score,.payDown{
+	font-weight: 100;
+}
+.scoreDown .scoreCount{
+	height: .46rem;
+	line-height: .46rem;
+}
+.scoreDown .scoreCount span input{
+	background: #C39F6B;
+	color: #FFFFFF;
+	border: none;
+	width: .3rem;
+	height: .27rem;
+	float: left;
+	margin-top: .08rem;
+}
+#minus{
+	border-radius:.06rem 0 0 .06rem;
+	background: #c2c2c2;
+}
+#num{
+	text-align: center;
+	border-left: .01rem solid #FFFFFF;
+	border-right: .01rem solid #FFFFFF;
+}
+#plus{
+	border-radius: 0 .06rem .06rem 0;
+	margin-right: .08rem;
+}
+/*should pay*/
+.shouldPay{
+	border-bottom: none!important;
+}
+.shouldPay p span:last-child{
+	color: #C39F6B;
+	font-weight: bold;
+}
+/*weChatPay tip*/
+.weChatPayTip{
+	width: 88%;
+	padding: .1rem 6%;
+	background: #EBEBEB;
+}
+.weChatPayTip p{
+	width: 100%;
+	height: .29rem;
+	padding-left: .16rem;
+	line-height: .29rem;
+	color: #292a2e;
+	font-size: .12rem;
+	background: url(../images/tip.png) no-repeat left .08rem;
+	background-size: .12rem .12rem;
+}
+.weChatPayTip ul{
+	padding-left: .16rem;
+}
+.weChatPayTip ul li{
+	font-size: .12rem;
+	color: #929292;
+	margin-bottom: .06rem;
+	line-height: .18rem;
+	list-style: disc;
+}
+/*weChatPay button*/
+.weChatBtn{
+	width: 100%;
+}
+.weChatBtn p{
+	width: 56%;
+	height: .44rem;
+	color: #FFFFFF;
+	font-size: .13rem;
+	text-align: center;
+	line-height: .44rem;
+	font-weight: bold;
+	background: #C39F6B;
+	border-radius: .22rem;
+	margin: .23rem auto;
+}
+/*tip box*/
+#confirm .modal-dialog{
+	margin: 1.8rem .4rem 0;
+}
+#confirm .modal-dialog .modal-body p{
+	margin: .15rem .15rem .05rem;
+}
+#confirm .btn-default{
+	outline: none; 
+	border-color: #C39F6B; 
+	color: #C39F6B;
+}
+#confirm .btn-primary{
+	background: #C39F6B; 
+	border: 0; 
+	outline: none;
+}

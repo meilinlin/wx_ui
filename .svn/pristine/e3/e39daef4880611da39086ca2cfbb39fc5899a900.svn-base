@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<title>支付离场</title>
+		<script src="js/loading.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/weChat_pay.css"/>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--WeChat info-->
+		<div class="WeChatPayWrapper">
+			<!--car numberInfo、start time and end time-->
+			<div class="timeInfo">
+				<p class="numberLevel">
+					<span>会员等级</span>
+					<span><img src="images/puCard.png"/></span>
+				</p>
+				<p>
+					<span>入场时间</span>
+					<span>2015-09-04 18:23:27</span>
+				</p>
+				<p>
+					<span>出场时间</span>
+					<span>未出场</span>
+				</p>
+				<p>
+					<span>停车时长</span>
+					<span>4小时02分10秒</span>
+				</p>
+			</div>
+			<!--car pay and number down-->
+			<div class="parkingFee">
+				<p>
+					<span>停车费用</span>
+					<span>24元</span>
+				</p>
+				<p>
+					<span>会员减免(<b class="cardType">黑卡</b>)</span>
+					<span>0元</span>
+				</p>
+			</div>
+			<!--score deduction-->
+			<div class="scoreDown">
+				<p>
+					<span>积分抵扣</span>
+					<span><b class="score">80001</b>积分可用</span>
+				</p>
+				<p class="scoreCount">
+					<span>
+						<input type="button" name="minus" id="minus" value="-" readonly="readonly"/>
+						<input type="text" name="num" id="num" value="0" readonly="readonly"/>
+						<input type="button" name="plus" id="plus" value="+" readonly="readonly" />
+						<span>小时</span>
+					</span>
+				</p>
+				<p>
+					<span>*最高抵扣4小时</span>
+					<span><b class="payDown">0</b>元</span>
+				</p>
+			</div>
+			<!--should pay-->
+			<div class="shouldPay">
+				<p>
+					<span>应缴金额</span>
+					<span><b class="shouldPayMoney">27</b>元</span>
+				</p>
+			</div>
+		</div>
+		<!--weChatPay tip-->
+		<div class="weChatPayTip">
+			<p>温馨提示:</p>
+			<ul>
+				<li>
+					支付后您将有20分钟时间离场，期间不产生任何费用。
+					若您未能在20分钟内离场，超出时间将按临停标准收费。
+				</li>
+				<li>
+					10000积分兑换1小时免费停车时间，每日至多使用4小时免费停车。
+				</li>
+			</ul>
+		</div>
+		<!--weChatPay button-->
+		<div class="weChatBtn">
+			<p>确认支付</p>
+		</div>
+		<!--tip box-->
+		<div class="modal fade" id="confirm">
+	   		<div class="modal-dialog">
+	   			<div class="modal-content">
+	   				<div class="modal-body">
+						<p>操作完成后请在20分钟内离场，若超时未离场，产生的费用需在出口处现金支付。</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-primary btnChange">确认支付</button>
+					</div>
+	   			</div>
+	   		</div>
+	    </div>
+	</body>
+	<script type="text/javascript">
+		//score deduction
+		//如果该账户积分不足抵扣一小时停车费的或在免费时长内，即置灰积分抵扣部分
+		var scoreCurrent = $(".score").html();
+		var payCurrent = $(".shouldPayMoney").html();
+		if(scoreCurrent < 10000 || payCurrent == 0){
+			$(".scoreDown p").css("color","#c2c2c2");
+			$(".scoreDown .scoreCount span input").css("background","#c2c2c2");
+			$("#minus").attr("disabled","disabled");
+			$("#plus").attr("disabled","disabled");
+		}
+		//如果积分满足抵扣一小时停车费，即可以使用积分抵扣
+		$("#plus").click(function(){
+			var numHours = $("#num").val();
+			var scoreCurrent = parseFloat($(".score").html());
+			var payCurrent = parseFloat($(".shouldPayMoney").html());
+			var payDown;
+			var downHours = Math.ceil((parseFloat(27) - 15) / 14 + 1);
+			$("#minus").css("background","#C39F6B");
+			$("#minus").removeAttr("disabled","disabled");
+			if(numHours < 4 && scoreCurrent > 10000 && numHours <= downHours){
+				numHours++;
+				$("#num").val(numHours);
+				scoreCurrent = scoreCurrent - 10000;
+				$(".score").html(scoreCurrent);
+				if(parseFloat(27) < 15){
+					payDown = -payCurrent;
+					$(".payDown").html(payDown);
+					$(".shouldPayMoney").html(0)
+				}else{
+					if(numHours == 1){
+						payDown = -15;
+						$(".payDown").html(payDown);
+						payCurrent = parseFloat(27) + parseFloat(payDown);
+						$(".shouldPayMoney").html(payCurrent);
+					}else  if(numHours > 1 && numHours < downHours){
+						payDown = -15 + (numHours - 1) *(-14);
+						$(".payDown").html(payDown);
+						payCurrent = parseFloat(27) + parseFloat(payDown);
+						$(".shouldPayMoney").html(payCurrent);
+					}else{
+						payDown = -(parseFloat(27));
+						$(".payDown").html(payDown);
+						$(".shouldPayMoney").html(0);
+					}
+				}
+				if(scoreCurrent < 10000 || downHours <= numHours || numHours == 4){
+					console.log(downHours,numHours)
+					$("#plus").attr("disabled","disabled");
+					$("#plus").css("background","#C2C2C2");
+				}
+			}
+		});
+		$("#minus").click(function(){
+			var numHours = $("#num").val();
+			var scoreCurrent = parseFloat($(".score").html());
+			var payCurrent = parseFloat($(".shouldPayMoney").html());
+			var payDown;
+			var downHours = Math.ceil((parseFloat(27) - 15) / 14 + 1);
+			$("#plus").css("background","#C39F6B");
+			$("#plus").removeAttr("disabled","disabled");
+			if(numHours > 0){
+				numHours--;
+				$("#num").val(numHours);
+				scoreCurrent = scoreCurrent + 10000;
+				$(".score").html(scoreCurrent);
+				if(parseFloat(27) < 15){
+					payDown = 0;
+					$(".payDown").html(payDown);
+					$(".shouldPayMoney").html(27)
+				}else{
+					if(numHours == 1){
+						payDown = -15;
+						$(".payDown").html(payDown);
+						payCurrent = parseFloat(27) + parseFloat(payDown);
+						$(".shouldPayMoney").html(payCurrent);
+					}else  if(numHours > 1 && numHours < downHours){
+						payDown = -15 + (numHours - 1) *(-14);
+						$(".payDown").html(payDown);
+						payCurrent = parseFloat(27) + parseFloat(payDown);
+						$(".shouldPayMoney").html(payCurrent);
+					}else{
+						payDown = -(parseFloat(0));
+						$(".payDown").html(payDown);
+						$(".shouldPayMoney").html(27);
+					}
+				}
+			}
+			if(numHours == 0){
+				$("#minus").attr("disabled","disabled");
+				$("#minus").css("background","#C2C2C2");
+			}
+		});
+		//黑卡会员全天减免  应缴金额为0  weChatBtn变为 确认离场
+		if($(".shouldPay .shouldPayMoney").html() == "0"){
+			$(".weChatBtn p").html("确认离场");
+		}else{
+			$(".weChatBtn p").html("确认支付");
+		}
+		//click weChatBtn  if shouldPay==0  弹出框为确认离场
+		//else 弹出框为确认支付
+		$(".weChatBtn p").click(function(){
+			if($(".shouldPay .shouldPayMoney").html() == "0元"){
+				$("#confirm .btnChange").html("确认离场")
+				$("#confirm").modal({"backdrop" : "static"});
+			}else{
+				$("#confirm .btnChange").html("确认支付")
+				$("#confirm").modal({"backdrop" : "static"});
+			}
+		});
+		//number deduction:puCard、goldCard、blackCard
+		//黑卡会员可以全天免费停车，其他等级会员没有减免优惠
+		//金卡会员可以使用积分抵扣，普卡不可以使用积分抵扣
+		var cardType = "GG";//${cardType}
+		if(cardType == "GG"){
+			$(".cardType").html("金卡");
+			$(".numberLevel span:last-child img").attr("src","images/goldCard.png");
+		}else if(cardType == "BB"){
+			$(".cardType").html("黑卡");
+			$(".numberLevel span:last-child img").attr("src","images/blackCard.png");
+			$(".scoreDown p").css("color","#c2c2c2");
+			$(".scoreDown .scoreCount span input").css("background","#c2c2c2");
+			$("#minus").attr("disabled","disabled");
+			$("#plus").attr("disabled","disabled");
+		}else{
+			$(".cardType").html("普卡");
+			$(".numberLevel span:last-child img").attr("src","images/puCard.png");
+			$(".scoreDown p").css("color","#c2c2c2");
+			$(".scoreDown .scoreCount span input").css("background","#c2c2c2");
+			$("#minus").attr("disabled","disabled");
+			$("#plus").attr("disabled","disabled");
+		}
+	</script>
+</html>

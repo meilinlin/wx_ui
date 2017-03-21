@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>支付离场</title>
+		<script type="text/javascript" src="js/loading.js" ></script>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/online_pay.css" />
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!-- order 场内-->
+		<div class="order">
+			<!--<h3>京AW1234</h3>-->
+			<p>入场时间<span>2016-09-08 18:34:56</span></p>
+			<p>停车时长<span>2小时22分10秒</span></p>
+			<p>停车费用<label>30元</label></p>
+			<div class="border_bottom"></div>
+			<button id="toPay">去结算</button>
+			<div class="pay_off">
+				<h5>已支付</h5>
+				<h6>您将有20分钟时间离场，期间不产生任何费用。</h6>
+			</div>
+		</div>
+		<!--order 场内 end-->
+		<!--tip-->
+		<div class="tip">
+			<p>
+				<laber>1</laber>
+				温馨提示： <span>(用户可自定义)</span>
+			</p>
+			<p>
+				<laber>2</laber>
+				会员停车优惠：<br />
+				<span><b>· </b>黑卡会员全天免费</span><br />
+				<span><b>· </b> 金卡会员10,000积分兑换1小时免费停车时间，每日至多使用4小时免费停车</span>
+			</p>
+		</div>
+		<!--tip end-->
+		<!--alert-->
+		<div class="modal fade" id="confirm">
+	   		<div class="modal-dialog">
+	   			<div class="modal-content">
+	   				<div class="modal-body">
+						<p>支付后因您未在规定时间内离场，产生的额外停车费用需在出口处现金支付</p >
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">确认支付</button>
+					</div>
+	   			</div>
+	   		</div>
+	    </div>
+		<!--alert end-->
+	</body>
+
+</html>
+<script>
+	
+	$("#toPay").click(function() {
+		$("#confirm").modal({"backdrop" : "static"});
+	});
+</script>

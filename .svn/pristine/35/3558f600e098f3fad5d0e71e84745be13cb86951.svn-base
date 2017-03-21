@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<title>增改车牌</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/add_card.css"/>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="carNumWrapper">
+			<div class="callNum">13812345678</div>
+			<div class="carNum">
+				<p>
+					<span>对应车辆</span>
+					<span>京QK1234</span>
+					<img src="images/delete.png" />
+				</p>
+				<p>
+					<span>对应车辆</span>
+					<span>京QK1234</span>
+					<img src="images/delete.png" />
+				</p>
+			</div>
+			<div class="addCarNum" onclick="showAdd()">
+				<img src="images/add.png" />
+				<span>添加新车辆</span>
+			</div>
+		</div>
+		<div class="tip">
+			温馨提示：每个手机号码最多可关联五部车辆。
+		</div>
+		<div class="modal fade" id="employeeDlg">
+	   		<div class="modal-dialog">
+	   			<div class="modal-content">
+	   				<div class="modal-header">
+	   					<button type="button" class="close" data-dismiss="modal">&times;</button>
+	                    <h4 class="modal-title">添加新车辆</h4>
+	   				</div>
+	   				<div id="sheng">
+		   				<span class="shengfen">京</span>	 
+		   				<span class="sanjiao"><img src="images/xia.png" width="8" height="5"/></span>	   				
+		   				<ul class="down" style="">
+							<li>京</li>
+		                    <li>津</li>
+		                    <li>冀</li>
+		                    <li>晋</li>
+		                    <li>蒙</li>
+		                    <li>辽</li>
+		                    <li>吉</li>
+		                    <li>黑</li>
+		                    <li>沪</li>
+		                    <li>苏</li>
+		                    <li>浙</li>
+		                    <li>皖</li>
+		                    <li>闽</li>
+		                    <li>赣</li>
+		                    <li>鲁</li>
+		                    <li>豫</li>
+		                    <li>鄂</li>
+		                    <li>湘</li>
+		                    <li>粤</li>
+		                    <li>桂</li>
+		                    <li>琼</li>
+		                    <li>渝</li>
+		                    <li>川</li>
+		                    <li>贵</li>
+		                    <li>云</li>
+		                    <li>藏</li>
+		                    <li>陕</li>
+		                    <li>甘</li>
+		                    <li>青</li>
+		                    <li>宁</li>
+		                    <li>新</li>
+		                    <li>使</li>
+						</ul>
+		   				<input class="shuru" ng-model="carNumber" placeholder="输入车牌号">
+		   			</div>
+					<div class="queren" ng-click="add()" data-dismiss="modal">确认并返回</div>
+	   			</div>
+	   		</div>
+	   </div>
+	</body>
+	<script type="text/javascript">
+		function showAdd(){
+    		$("#employeeDlg").modal({"backdrop" : "static"});
+    	}
+		$(".sanjiao").click(function(){
+			$(".down").css("display","block");
+			$(".sanjiao img").attr("src","images/shang.png");
+		});
+		$(".down li").click(function(){
+			var a = $(this).html();
+			$(".shengfen").html(a);
+			$(".down").css("display","none");
+			$(".sanjiao img").attr("src","images/xia.png");
+		});
+	</script>
+</html>

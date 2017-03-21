@@ -1,0 +1,81 @@
+/*body color*/
+body{
+	background: #f6f6f6;
+}
+/*confirm_pay top*/
+.confirmPayWrapper{
+	width: 100%;
+	height: 2.2rem;
+	background: #FFFFFF;
+}
+.confirmPayWrapper div:first-child{
+	width: 90%;
+	height: 1.77rem;
+	margin: 0 auto;
+	border-bottom: .01rem solid #c9c9c9;
+}
+.confirmPayWrapper div:first-child p:first-child{
+	width: 100%;
+	height: 1.1rem;
+	background: url(../images/wait_pay.png) no-repeat bottom center;
+	background-size: .65rem .65rem;
+}
+.confirmPayWrapper div:first-child p:last-child{
+	width: 100%;
+	font-size: .16rem;
+	color: #000000;
+	text-align: center;
+	margin-top: .2rem;
+}
+.confirmPayWrapper div:last-child{
+	width: 90%;
+	height: .42rem;
+	line-height: .42rem;
+	margin: 0 auto;
+}
+.confirmPayWrapper div:last-child span:first-child{
+	float: left;
+	font-size: .13rem;
+	color: #ababab;
+}
+.confirmPayWrapper div:last-child span:last-child{
+	float: right;
+	font-size: .13rem;
+	color: #000000;
+}
+/*confirm_pay tip*/
+.confirmPayTip{
+	width: 88%;
+	margin: .12rem auto .4rem;
+	font-size: .12rem;
+	color: #929292;
+}
+.confirmPayTip p:first-child{
+	width: 100%;
+	height: .29rem;
+	padding-left: .16rem;
+	line-height: .29rem;
+	background: url(../images/tip.png) no-repeat left .08rem;
+	background-size: .12rem .12rem;
+}
+.confirmPayTip p:last-child{
+	width: 100%;
+	line-height: .2rem;
+}
+/*confirm_pay button*/
+.confirmPayBtn{
+	width: 100%;
+	height: .44rem;
+}
+.confirmPayBtn p{
+	width: 56%;
+	height: .44rem;
+	color: #FFFFFF;
+	font-size: .13rem;
+	text-align: center;
+	line-height: .44rem;
+	font-weight: bold;
+	background: #C39F6B;
+	border-radius: .22rem;
+	margin: 0 auto;
+}

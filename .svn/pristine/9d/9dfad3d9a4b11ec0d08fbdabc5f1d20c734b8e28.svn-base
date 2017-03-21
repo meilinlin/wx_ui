@@ -1,0 +1,90 @@
+/*welcome*/
+.welcome{
+	width: 100%;
+	height:2.82rem ;
+	background: #fff;
+	text-align: center;
+	float: left;
+}
+.welcome h3{
+	font-size: 0.2rem;
+	color:#000 ;
+	margin-bottom: 0.6rem;
+}
+.logo{
+	weight:0.84rem;
+	height:0.84rem;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.55rem;
+	margin-bottom: 0.31rem;
+}
+.tip_txt{
+	font-size: 0.12rem;
+	color: #898989;
+}
+/*welcome end*/
+/* scan_pay */
+.scan_pay{
+	clear: left;
+	width: 100%;
+	height:1.08rem ;
+	background: #fff;
+	float: left;
+}
+.scan_pay section{
+	width: 2.1rem;
+	height:0.43rem ;
+	background:#c39f6b ;
+	font-size: 0.13rem;
+	color: #fff;
+	margin: 0 auto;
+	border-radius:0.21rem ;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin-top: 0.25rem;
+}
+.scan_pay section img{
+	width: 0.18rem;
+	height: 0.18rem;
+	float: left;
+	margin-right:0.15rem ;
+}
+/*scan_pay end*/
+/*tip*/
+.tip{
+	clear: left;
+	width: 86%;
+	height: 1.5rem;
+	padding: 0 7%;
+	padding-top:0.15rem ;
+}
+.tip p{
+	width:100% ;
+	font-size: 0.11rem;
+	margin-top: 0.1rem;
+}
+
+.tip p laber{
+	color: #fff;
+	background: #b0b0b0;
+	width: 0.12rem;
+	height: 0.12rem;
+	display: inline-block;
+	text-align: center;
+	line-height: 0.12rem;
+	border-radius:0.05rem ;
+	font-size: 0.07rem;
+	
+	
+}
+
+.tip p span{
+	color: #b0b0b0;
+	line-height: 0.2rem;
+}
+.tip p span b{
+	font-size: 0.18rem;
+}
+/*tip end*/
